@@ -1,15 +1,23 @@
+import sys
+sys.path.append('../doubly_linked_list')
+from doubly_linked_list import DoublyLinkedList
+
+
 class Queue:
   def __init__(self):
     self.size = 0
     # what data structure should we
     # use to store queue elements?
-    self.storage = 
+    self.storage = DoublyLinkedList()
 
   def enqueue(self, item):
-    pass
+    self.storage.add_to_tail(item)
+    self.size += 1
   
   def dequeue(self):
-    pass
+    if self.size > 0:
+      self.size -= 1
+    return self.storage.remove_from_head()
 
   def len(self):
-    pass
+    return self.size
